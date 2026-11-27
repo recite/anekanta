@@ -1,0 +1,25 @@
+{
+  "provider": "openalex",
+  "started_at": "2026-11-27T00:24:10.356242+00:00",
+  "cited_work": {
+    "id": "doi:10.1093/poq/nfs038",
+    "title": "Affect, Not Ideology"
+  },
+  "target_openalex_id": "W2124751389",
+  "citing_doi": "doi:10.1017/s1537592714003156",
+  "reported_count": 1,
+  "next_cursor": null,
+  "complete": true,
+  "papers": [
+    {
+      "citing_work": {
+        "id": "doi:10.1017/s1537592714003156",
+        "title": "A Non-Gendered Lens? Media, Voters, and Female Candidates in Contemporary Congressional Elections"
+      },
+      "openalex_ids": [
+        "W2163226859"
+      ],
+      "pdf_urls": []
+    }
+  ]
+}

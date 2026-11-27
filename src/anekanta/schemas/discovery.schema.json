@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OpenAlex discovery snapshot",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["provider", "started_at", "cited_work", "target_openalex_id", "citing_doi", "reported_count", "next_cursor", "complete", "papers"],
+  "properties": {
+    "provider": {"const": "openalex"},
+    "started_at": {"type": "string", "minLength": 1},
+    "cited_work": {"$ref": "paper-result.schema.json#/$defs/work"},
+    "target_openalex_id": {"type": "string", "pattern": "^W[0-9]+$"},
+    "citing_doi": {"type": ["null", "string"]},
+    "reported_count": {"type": ["null", "integer"], "minimum": 0},
+    "next_cursor": {"type": ["null", "string"]},
+    "complete": {"type": "boolean"},
+    "papers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["citing_work", "openalex_ids", "pdf_urls"],
+        "additionalProperties": false,
+        "properties": {
+          "citing_work": {"$ref": "paper-result.schema.json#/$defs/work"},
+          "openalex_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "pattern": "^W[0-9]+$"}},
+          "pdf_urls": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^https?://"}}
+        }
+      }
+    }
+  },
+  "if": {"properties": {"complete": {"const": true}}},
+  "then": {"properties": {"next_cursor": {"type": "null"}, "reported_count": {"type": "integer"}}},
+  "else": {"properties": {"next_cursor": {"type": "string","minLength":1}}}
+}

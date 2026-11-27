@@ -40,3 +40,12 @@ Temporary Items
 
 # Personal directories with notes etc.
 dev/
+__pycache__/
+passages.jsonl
+.venv/
+dist/
+.pytest_cache/
+.ruff_cache/
+.coverage
+docs/_build/
+/run/

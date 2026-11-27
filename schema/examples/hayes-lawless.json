@@ -1,0 +1,31 @@
+{
+  "schema_version": "0.1",
+  "cited_work": {
+    "id": "doi:10.1093/poq/nfs038",
+    "title": "Affect, Not Ideology: A Social Identity Perspective on Polarization"
+  },
+  "citing_work": {
+    "id": "doi:10.1017/s1537592714003156",
+    "title": "A Non-Gendered Lens? Media, Voters, and Female Candidates in Contemporary Congressional Elections"
+  },
+  "method": { "name": "manual", "version": "0.1" },
+  "source": {
+    "kind": "pdf",
+    "location": "testdata/13.pdf",
+    "sha256": "ee868ff20052b5952a035d50aee2a2adb413defc01bfffad628815edfbc573d4"
+  },
+  "outcome": "passages_found",
+  "passages": [
+    {
+      "id": "body-note-40",
+      "quote": "Moreover, the information that voters encounter has come to reflect these divisions, as the news media cover partisan conflict as a central aspect of contemporary campaigns.",
+      "marker": "40",
+      "review": "source_checked",
+      "location": { "pdf_page": 4, "printed_page": "98" },
+      "note": {
+        "text": "40 Iyengar, Sood, and Lelkes 2012.",
+        "location": { "pdf_page": 16, "printed_page": "110" }
+      }
+    }
+  ]
+}

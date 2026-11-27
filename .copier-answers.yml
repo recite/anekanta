@@ -1,0 +1,12 @@
+# Managed by copier — records template version for `copier update`. Do not edit.
+_commit: v1.7.0
+_src_path: gh:gojiplus/py-canon
+author_email: ''
+author_name: Gaurav Sood
+coverage_floor: 0
+default_branch: master
+description: Collect and locate passages in works citing a publication
+needs_cli: true
+org: recite
+package_name: anekanta
+project_name: anekanta

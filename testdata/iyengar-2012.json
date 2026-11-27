@@ -1,0 +1,121 @@
+{
+  "cited_work": {
+    "id": "doi:10.1093/poq/nfs038",
+    "title": "Affect, Not Ideology: A Social Identity Perspective on Polarization"
+  },
+  "papers": [
+    {
+      "citing_work": {
+        "id": "local:leeper-slothuus-opinion-formation"
+      },
+      "path": "1.pdf",
+      "sha256": "743643e287c57a51feba8fe760052e4c89c3ff2d5b258066774e22d1843e6588"
+    },
+    {
+      "citing_work": {
+        "id": "local:ahler-self-fulfilling-misperceptions"
+      },
+      "path": "2.pdf",
+      "sha256": "3a00e78fc6274546ac3c631024759edf84b56289d466d5336dfaa7c73688ee73"
+    },
+    {
+      "citing_work": {
+        "id": "local:nber-w19080"
+      },
+      "path": "3.pdf",
+      "sha256": "71b5d7b083a18d48efe3ce71bf1a54972e3413ed5ae2a7fe090a2fbcbeaf84fc"
+    },
+    {
+      "citing_work": {
+        "id": "local:rogowski-tucker-mavericks"
+      },
+      "path": "4.pdf",
+      "sha256": "31d844b3fce9ff458f36fa915a4369368277c2838faaae4d4c6d920cfa3d4819"
+    },
+    {
+      "citing_work": {
+        "id": "doi:10.1017/s0022381614000176"
+      },
+      "path": "5.pdf",
+      "sha256": "d9c64a5df96bbf8241469a08f7e4d36e84e1513adf2678223e6acc461331afa4"
+    },
+    {
+      "citing_work": {
+        "id": "local:druckman-pathologies"
+      },
+      "path": "6.pdf",
+      "sha256": "724203d5a2f4a690df1aca9ffc19b24554d575e287f4aede63ff157909bb345b"
+    },
+    {
+      "citing_work": {
+        "id": "doi:10.1111/jcom.12084"
+      },
+      "path": "7.pdf",
+      "sha256": "7db116995b0924934db72d08d52b20085d439c42ea3973155d54c9a4e3f10018"
+    },
+    {
+      "citing_work": {
+        "id": "local:nall-mummolo-neighborhoods"
+      },
+      "path": "8.pdf",
+      "sha256": "2ef8913c0db8532410dcf47d21401450ab22334c5bb253374ec63c5c78c65af5"
+    },
+    {
+      "citing_work": {
+        "id": "local:iyengar-westwood-fear-and-loathing"
+      },
+      "path": "9.pdf",
+      "sha256": "b71ebe705aa195de49729e3dc1e3d1ecc2f300a1b39361bfc6e10b7fbb92b2de"
+    },
+    {
+      "citing_work": {
+        "id": "doi:10.1177/0951629814531672"
+      },
+      "path": "10.pdf",
+      "sha256": "2af012f056db839230c5afd836d191f0bc0c7ead21c93a806025246406591f1f"
+    },
+    {
+      "citing_work": {
+        "id": "doi:10.1177/1065912913477735"
+      },
+      "path": "11.pdf",
+      "sha256": "d704d7818f6d7406e17d92204f4676004d2122890eca51f962095ddbba83b746"
+    },
+    {
+      "citing_work": {
+        "id": "local:apsa-negotiating-agreement-2013"
+      },
+      "path": "12.pdf",
+      "sha256": "2455ab7c4c0e1889e593a33507b740a82f3e3ba3a44610d75d5a29f397485182"
+    },
+    {
+      "citing_work": {
+        "id": "doi:10.1017/s1537592714003156"
+      },
+      "path": "13.pdf",
+      "sha256": "ee868ff20052b5952a035d50aee2a2adb413defc01bfffad628815edfbc573d4"
+    },
+    {
+      "citing_work": {
+        "id": "doi:10.1093/pan/mpu009"
+      },
+      "path": "14.pdf",
+      "sha256": "743947d079111c8d7cc0ee3158dfa9ed8d19882c0d503f5989d5abcde36f0b06"
+    },
+    {
+      "citing_work": {
+        "id": "doi:10.1111/hcre.12028"
+      },
+      "path": "15.pdf",
+      "sha256": "ad74e3586079239d9066199e7c53735f96b7aa548063b381d0813fac7484ee07"
+    },
+    {
+      "citing_work": {
+        "id": "local:barbera-social-media-2014"
+      },
+      "path": "16.pdf",
+      "sha256": "c89591b45b427f59bfce05bb37101d1c10dde53a6829672fe84946ea24f3f673"
+    }
+  ],
+  "source_root": ".."
+}

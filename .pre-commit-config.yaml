@@ -1,0 +1,49 @@
+repos:
+  # ruff runs from the project's own environment rather than a separately
+  # pinned rev. The dev group's ruff floats, and CI resolves it from uv.lock,
+  # so an exact `rev:` here is a second version that drifts against it -- and
+  # not always harmlessly: ruff 0.16 formats Python inside Markdown and 0.15
+  # does not, so `pre-commit run --all-files` passed while `ruff format
+  # --check` failed in CI on the same README, across five repos. A hook that
+  # green-lights what CI rejects is worse than no hook.
+  - repo: local
+    hooks:
+      - id: ruff
+        name: ruff check
+        entry: uv run ruff check --fix
+        language: system
+        types_or: [python, pyi]
+        require_serial: true
+      - id: ruff-format
+        name: ruff format
+        entry: uv run ruff format
+        language: system
+        # Not just Python: current ruff formats code blocks inside Markdown,
+        # and CI runs `ruff format --check .` over the whole tree.
+        types_or: [python, pyi, markdown]
+        require_serial: true
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-toml
+      - id: check-added-large-files
+      - id: check-merge-conflict
+  # Links within the repo, offline: relative paths, images and #anchors.
+  # Web links are the weekly link-check workflow's job; a commit hook that
+  # waits on the network fails for reasons that have nothing to do with the
+  # commit. Exclusions live in lychee.toml, which lychee reads by itself.
+  #
+  # Pinned to the commit that fixes the hook in linked git worktrees
+  # (lycheeverse/lychee#2292), which no release carries yet. Off a release tag
+  # the hook cannot tell which lychee to install, hence LYCHEE_VERSION. Go back
+  # to `rev: lychee-v<version>` and drop that argument at the next release.
+  - repo: https://github.com/lycheeverse/lychee
+    rev: 81cb43e138041299105cdeb84c70e66a137fa1bf
+    hooks:
+      - id: lychee
+        args:
+          [LYCHEE_VERSION=0.24.2, --offline, --include-fragments, --no-progress]
+        types_or: [markdown, rst, html]

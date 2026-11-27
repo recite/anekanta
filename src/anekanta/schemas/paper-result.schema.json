@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Anekanta paper result",
+  "description": "One method's result for one cited work and one citing work. An export can contain one JSON object per line. Reconcile methods before counting distinct works or occurrences.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "cited_work", "citing_work", "method", "outcome", "passages"],
+  "properties": {
+    "schema_version": { "const": "0.1" },
+    "cited_work": { "$ref": "#/$defs/work" },
+    "citing_work": { "$ref": "#/$defs/work" },
+    "method": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version"],
+      "properties": {
+        "name": { "$ref": "#/$defs/text" },
+        "parameters": { "type": "object", "description": "Search settings used by this method." },
+        "version": {
+          "description": "Extractor version, annotation protocol revision, or API version.",
+          "$ref": "#/$defs/text"
+        }
+      }
+    },
+    "source": {
+      "description": "Exact input used by this method. Record the SHA-256 of the PDF bytes or the saved provider response. Relative PDF paths use the acquisition manifest directory or its explicit source_root.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "location", "sha256"],
+      "properties": {
+        "kind": { "enum": ["pdf", "provider_response"] },
+        "location": { "$ref": "#/$defs/text" },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      }
+    },
+    "outcome": {
+      "enum": ["passages_found", "no_match", "source_unavailable", "extraction_failed", "ambiguous_target"],
+      "description": "no_match means the method completed on this source and returned zero passages. It does not establish that the paper never cites the target."
+    },
+    "detail": { "$ref": "#/$defs/text" },
+    "passages": {
+      "type": "array",
+      "description": "One item per occurrence in source order when known. Equal text at different markers remains separate. A provider snippet is a candidate until located in the original.",
+      "items": { "$ref": "#/$defs/passage" }
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "outcome": { "const": "passages_found" } } },
+      "then": { "required": ["source"], "properties": { "passages": { "minItems": 1 } } },
+      "else": { "properties": { "passages": { "maxItems": 0 } } }
+    },
+    {
+      "if": { "properties": { "outcome": { "enum": ["no_match", "ambiguous_target"] } } },
+      "then": { "required": ["source"] }
+    },
+    {
+      "if": { "properties": { "outcome": { "enum": ["source_unavailable", "extraction_failed", "ambiguous_target"] } } },
+      "then": { "required": ["detail"] }
+    },
+    {
+      "if": { "required": ["source"], "properties": { "source": { "properties": { "kind": { "const": "provider_response" } } } } },
+      "then": { "properties": { "passages": { "items": { "properties": { "review": { "const": "unchecked" } }, "not": { "anyOf": [{ "required": ["location"] }, { "required": ["note"] }] } } } } }
+    }
+  ],
+  "$defs": {
+    "text": { "type": "string", "pattern": "\\S" },
+    "work": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id"],
+      "properties": {
+        "id": {
+          "description": "Stable namespaced identifier. Prefer a lowercase doi: identifier. Otherwise use an openalex:, arxiv:, s2:, or persistent local: catalog identifier. Keep the same work ID across methods and PDF versions.",
+          "type": "string",
+          "pattern": "^(doi|arxiv|s2|openalex|local):[^\\s]+$"
+        },
+        "title": { "$ref": "#/$defs/text" }
+      }
+    },
+    "location": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pdf_page"],
+      "properties": {
+        "pdf_page": { "type": "integer", "minimum": 1, "description": "One-based page containing the citation marker, or the note when used inside note." },
+        "printed_page": { "$ref": "#/$defs/text" }
+      }
+    },
+    "passage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "quote", "review"],
+      "properties": {
+        "id": { "$ref": "#/$defs/text", "description": "Persistent key within this cited-work, citing-work, source, and method combination. Preserve it on reruns and input reordering. Use a source anchor or assigned identifier rather than an output row number." },
+        "quote": { "$ref": "#/$defs/text", "description": "Words surrounding the citation, in reading order. Collapse layout whitespace and expand typographic ligatures. Keep inline author/year citations. A detached note marker may be stored separately." },
+        "marker": { "$ref": "#/$defs/text", "description": "Visible marker in the body, including other works in a grouped citation." },
+        "review": { "enum": ["unchecked", "source_checked"], "description": "source_checked means a reviewer checked the quotation, its location, and the link to the cited work in the original document." },
+        "location": { "$ref": "#/$defs/location" },
+        "note": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["text", "location"],
+          "properties": { "text": { "$ref": "#/$defs/text" }, "location": { "$ref": "#/$defs/location" } }
+        }
+      },
+      "dependentRequired": { "note": ["marker", "location"] },
+      "allOf": [
+        {
+          "if": { "properties": { "review": { "const": "source_checked" } } },
+          "then": { "required": ["marker", "location"] }
+        }
+      ]
+    }
+  }
+}

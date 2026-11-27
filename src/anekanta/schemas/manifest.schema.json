@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PDF acquisition manifest for one cited work",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "cited_work",
+    "papers"
+  ],
+  "properties": {
+    "cited_work": {
+      "$ref": "paper-result.schema.json#/$defs/work"
+    },
+    "papers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "citing_work"
+        ],
+        "properties": {
+          "citing_work": {
+            "$ref": "paper-result.schema.json#/$defs/work"
+          },
+          "path": {
+            "$ref": "paper-result.schema.json#/$defs/text",
+            "description": "Resolve relative paths from the directory containing this manifest."
+          },
+          "sha256": {
+            "$ref": "paper-result.schema.json#/properties/source/properties/sha256"
+          },
+          "unavailable": {
+            "type": "string",
+            "minLength": 1
+          },
+          "obtained_from": {
+            "type": "string"
+          }
+        },
+        "oneOf": [
+          {
+            "required": [
+              "path",
+              "sha256"
+            ],
+            "not": {
+              "required": [
+                "unavailable"
+              ]
+            }
+          },
+          {
+            "required": [
+              "unavailable"
+            ],
+            "not": {
+              "anyOf": [
+                {
+                  "required": [
+                    "sha256"
+                  ]
+                },
+                {
+                  "required": [
+                    "path"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "source_root": {
+      "type": "string",
+      "description": "Base for recording portable source locations, relative to this manifest."
+    },
+    "discovery": {
+      "type": "object",
+      "required": [
+        "provider",
+        "complete",
+        "sha256",
+        "started_at",
+        "reported_count",
+        "citing_doi"
+      ],
+      "properties": {
+        "provider": {
+          "const": "openalex"
+        },
+        "complete": {
+          "type": "boolean"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "started_at": {
+          "type": "string"
+        },
+        "reported_count": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "citing_doi": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

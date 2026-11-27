@@ -3,6 +3,5 @@ message: "If you use this software, please cite it as below."
 authors:
 - family-names: "Sood"
   given-names: "Gaurav"
-title: "Get Weather Data"
-date-released: 2016
-url: "https://github.com/recite/autosum/"
+title: "Anekanta"
+url: "https://github.com/recite/anekanta/"
