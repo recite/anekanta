@@ -16,7 +16,7 @@ cd anekanta
 uv run anekanta extract testdata/iyengar-2012.json --author Iyengar --year 2012 > passages.jsonl
 ```
 
-The extractor finds eight candidate mentions across five of the 16 PDFs. Each line of output describes one PDF, including its identifier, file hash, search method, and outcome. Each match has a quotation, a PDF page, and a review status. A paper with zero matches gets its own record, as does a paper that could not be read. Compare your output with the [saved results](https://github.com/recite/anekanta/blob/master/testout/iyengar-2012.jsonl).
+The extractor finds eight candidate mentions across five of the 16 PDFs. Each line of output describes one PDF, including its identifier, file hash, search method, and outcome. Each match has a quotation, a PDF page, and a review status. A paper with zero matches gets its own record, as does a paper that could not be read. Compare your output with the [saved results](https://raw.githubusercontent.com/recite/anekanta/master/testout/iyengar-2012.jsonl).
 
 For a two-author work, supply the surnames in publication order, for example `--author Chattopadhyay --coauthor Duflo --year 2004`. This matches both “Chattopadhyay and Duflo (2004)” and “(Chattopadhyay & Duflo, 2004).” Check the bibliography when a year has a suffix such as 2004b. The authors may have published more than one paper that year.
 
@@ -34,7 +34,7 @@ uv run anekanta import-review run/manifest.json schema/examples/hayes-lawless.js
 1. **Discover citing works.** OpenAlex supplies the works and their identifiers. Omit `--citing-doi` to request all citing works. Each page saves the works found so far and the cursor for the next request. Set `OPENALEX_API_KEY` to page beyond the first response. Use `--max-pages N` to limit a run and `--resume` to continue it. [OpenAlex authentication](https://help.openalex.org/api/authentication/)
 2. **Acquire the PDFs.** The example uses a local catalog and verifies each file’s hash. Online acquisition also tries open-access PDF links from OpenAlex. The resulting manifest records unavailable sources. To process an unfinished discovery run, pass `--allow-partial`.
 3. **Extract candidate passages.** The author-and-year search returns `no_match` for Hayes and Lawless. It can miss endnotes, numbered references, and citations split over pages. Use `--cache DIRECTORY` to reuse parsed text when comparing searches. The command writes one result per input and returns exit status 1 if any paper failed.
-4. **Import a checked passage.** A reader traced note 40 on printed page 98 (PDF page 4) to the reference on printed page 110 (PDF page 16). The import verifies that the existing annotation identifies the same citing work, cited work, and PDF. Here `source_checked` records that the reader located the passage and its citation. Its accuracy as a description of the cited study is a separate judgment. [Checked annotation](https://github.com/recite/anekanta/blob/master/schema/examples/hayes-lawless.json)
+4. **Import a checked passage.** A reader traced note 40 on printed page 98 (PDF page 4) to the reference on printed page 110 (PDF page 16). The import verifies that the existing annotation identifies the same citing work, cited work, and PDF. Here `source_checked` records that the reader located the passage and its citation. Its accuracy as a description of the cited study is a separate judgment. [Checked annotation](https://raw.githubusercontent.com/recite/anekanta/master/schema/examples/hayes-lawless.json)
 
 ## When several papers are cited together
 
@@ -46,4 +46,4 @@ The package supports Python 3.10 and later. Run `make ci` for tests, lint, and t
 
 The wheel includes the discovery, acquisition, and result schemas. Build it with `uv build` and install it with `uv tool install path/to/the-built-wheel.whl`. The sample PDFs and reviewed annotation live in the repository.
 
-The original [Google Scholar and CSV scripts](https://github.com/recite/anekanta/tree/master/scripts) and [arXiv workflow](https://github.com/recite/anekanta/tree/master/arxiv) are available alongside the package. The [original instructions](https://github.com/recite/anekanta/blob/a1dde5b1117fde9cc548b36e04521c4c89100b9f/Readme.md) document their formats.
+The original [Google Scholar and CSV scripts](https://github.com/recite/anekanta/tree/master/scripts) and [arXiv workflow](https://github.com/recite/anekanta/tree/master/arxiv) are available alongside the package. The [original instructions](https://raw.githubusercontent.com/recite/anekanta/a1dde5b1117fde9cc548b36e04521c4c89100b9f/Readme.md) document their formats.
