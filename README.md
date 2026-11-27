@@ -15,7 +15,7 @@ uv run anekanta load testout/quota-spending.jsonl --db citations.sqlite --collec
 sqlite3 -csv -header citations.sqlite < examples/quota-spending/matrix.sql
 ```
 
-The matrix shows 121 candidate mentions across 18 PDFs. Read across Brown, Mitra, and Singh’s row and five of the six focal works appear. On page 6 two citations share a clause about an employment guarantee. One source reports greater demand for work, another reports more days worked. Whether either supports a claim about insurance depends on what happened when a shock hit. [Explore the collection, source passages, and paper-by-paper matrix](https://recite.github.io/anekanta/quota-spending.html) · [Read Brown, Mitra, and Singh, p. 6](https://www.isid.ac.in/~acegd/acegd2025/papers/AruniMitra.pdf#page=6)
+The matrix shows 121 candidate mentions across 18 PDFs. Read across Brown, Mitra, and Singh’s row and five of the six focal works appear. On page 6 two citations share a clause about an employment guarantee. One source reports greater demand for work, another reports more days worked. Whether either supports a claim about insurance depends on what happened when a shock hit. [Explore the collection, source passages, and paper-by-paper matrix](docs/quota-spending.md) · [Read Brown, Mitra, and Singh, p. 6](https://www.isid.ac.in/~acegd/acegd2025/papers/AruniMitra.pdf#page=6)
 
 ## Try the extractor on 16 bundled PDFs
 
