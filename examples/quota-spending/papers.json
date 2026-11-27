@@ -1,0 +1,236 @@
+[
+  {
+    "label": "Ban & Rao (2008)",
+    "file": "ban_rao_2008_edcc.pdf",
+    "sha256": "2da213c93b0f4863a7d6f87433cf66e192617bb760b0bbb66897aa5e47a9979e",
+    "work": {
+      "id": "local:ban_rao_2008_edcc"
+    }
+  },
+  {
+    "label": "Bardhan et al. (2005)",
+    "file": "bardhan_mookherjee_parra_2005_wp.pdf",
+    "sha256": "3ff6f16ce990f33826ef28cc69248e000e2181097281cd72aa2477c9b859e4cf",
+    "work": {
+      "id": "local:bardhan_mookherjee_parra_2005_wp"
+    }
+  },
+  {
+    "label": "Bardhan et al. (2010)",
+    "file": "bardhan_mookherjee_parra_2010_jgd.pdf",
+    "sha256": "24a8cdd52ed1678e2881d901d7fa63367c32b50b72b1c59f6fb535be2d75cedc",
+    "work": {
+      "id": "local:bardhan_mookherjee_parra_2010_jgd"
+    }
+  },
+  {
+    "label": "Beaman et al. (2010)",
+    "file": "beaman_duflo_pande_topalova_2011_ipf.pdf",
+    "sha256": "a67175445cb4495383d0395c4e900c234414f4cb13ecc40a62028708d76c70d5",
+    "work": {
+      "id": "local:beaman_duflo_pande_topalova_2011_ipf"
+    }
+  },
+  {
+    "label": "Bhalotra & Clots-Figueras (2014)",
+    "file": "bhalotra_clots_figueras_2014_aejpol.pdf",
+    "sha256": "75e8ef3af8fb01bcb974bd8a4cdd4c07344d6a16bb83f69f099a561802e4506c",
+    "work": {
+      "id": "local:bhalotra_clots_figueras_2014_aejpol"
+    }
+  },
+  {
+    "label": "Bose & Das (2018)",
+    "file": "bose_das_2018_rde.pdf",
+    "sha256": "edff6a779e9e920a0e9ef35defa42b361df11d0a8babc6250432172a775ebd1d",
+    "work": {
+      "id": "doi:10.1111/rode.12336",
+      "title": "Political Reservation for Women and Delivery of Public Works Program"
+    },
+    "search": {
+      "author": "Bose",
+      "year": "2018",
+      "coauthor": "Das"
+    }
+  },
+  {
+    "label": "Brown et al. (2025)",
+    "file": "brown_mitra_singh_2025_wp.pdf",
+    "sha256": "fb6c24918577be001cb2fc45144355f3873ef5bdbee9e125284b62c0473680ff",
+    "work": {
+      "id": "local:brown_mitra_singh_2025_wp"
+    }
+  },
+  {
+    "label": "Cassan & Vandewalle (2021)",
+    "file": "cassan_vandewalle_2021_wd.pdf",
+    "sha256": "89f4daa5afaaef0c5b06108cf780353c41ddcd3e2f87bf891907ca2842edef15",
+    "work": {
+      "id": "local:cassan_vandewalle_2021_wd"
+    }
+  },
+  {
+    "label": "Chattopadhyay & Duflo (2004)",
+    "file": "chattopadhyay_duflo_2004_ecta.pdf",
+    "sha256": "b45ae5428ecfd004d3ef0a9da8f5631402f982f17055f65f6fbcedc2aa35ba9e",
+    "work": {
+      "id": "doi:10.1111/j.1468-0262.2004.00539.x",
+      "title": "Women as Policy Makers: Evidence from a Randomized Policy Experiment in India"
+    },
+    "search": {
+      "author": "Chattopadhyay",
+      "year": "2004",
+      "coauthor": "Duflo"
+    }
+  },
+  {
+    "label": "Chaturvedi et al. (2025)",
+    "file": "chaturvedi_das_mahajan_2025_edcc.pdf",
+    "sha256": "514d87673dab4190fb1d3ad92fd6bdbf04c54363d06a5263b915684c27eeddf0",
+    "work": {
+      "id": "local:chaturvedi_das_mahajan_2025_edcc"
+    }
+  },
+  {
+    "label": "Das (2015)",
+    "file": "das_2015_wp.pdf",
+    "sha256": "0b18f5e4210f1e7e424eb607c209a783fc6e4c2fb9485837146036776e962f7c",
+    "work": {
+      "id": "local:das_2015_wp"
+    }
+  },
+  {
+    "label": "Deininger et al. (2011)",
+    "file": "deininger_jin_nagarajan_xia_2011_wb_wps5708.pdf",
+    "sha256": "144a136bfecfe684bb65695d1ae28c9e5907395d28255e6b64cfd61ecb071d8f",
+    "work": {
+      "id": "local:deininger_jin_nagarajan_xia_2011_wb_wps5708"
+    }
+  },
+  {
+    "label": "Deininger et al. (2022)",
+    "file": "deininger_jin_nagarajan_singh_2022_jds.pdf",
+    "sha256": "04dab5470bfcfd8e46192d60642bcd72db43b58957da8356371ad429a4d2ff89",
+    "work": {
+      "id": "local:deininger_jin_nagarajan_singh_2022_jds"
+    }
+  },
+  {
+    "label": "Deininger et al. (2020)",
+    "file": "deininger_nagarajan_singh_2020_jce.pdf",
+    "sha256": "775283f0cac944b95164c47f3a7734478099fe615de66b3284e430e569c49cfa",
+    "work": {
+      "id": "doi:10.1016/j.jce.2019.12.003",
+      "title": "Women's Political Leadership and Economic Empowerment: Evidence from Public Works in India"
+    },
+    "search": {
+      "author": "Deininger",
+      "year": "2020"
+    }
+  },
+  {
+    "label": "Duflo & Topalova (2004)",
+    "file": "duflo_topalova_2004_wp.pdf",
+    "sha256": "06b5bce504abd68744f0a532d9b1ef3213e969706a7806eea6e50a08e0f9d4a6",
+    "work": {
+      "id": "local:duflo_topalova_2004_wp"
+    }
+  },
+  {
+    "label": "Gajwani & Zhang (2015)",
+    "file": "gajwani_zhang_2015_wber.pdf",
+    "sha256": "b8a47777acda5fa63cba3190e381c700d897748dfa559fb5b78539db0a93393c",
+    "work": {
+      "id": "doi:10.1093/wber/lhu001",
+      "title": "Gender and Public Goods Provision in Tamil Nadu's Village Governments"
+    },
+    "search": {
+      "author": "Gajwani",
+      "year": "2015",
+      "coauthor": "Zhang"
+    }
+  },
+  {
+    "label": "Nilekani (2010)",
+    "file": "nilekani_2010_yale_senior_essay.pdf",
+    "sha256": "b6d48de767fbb8fe9cb6de956dcfc22d6f7c77a1840d20cafeec209544159361",
+    "work": {
+      "id": "local:nilekani_2010_yale_senior_essay"
+    }
+  },
+  {
+    "label": "Pakhtigian & Pattanayak (2024)",
+    "file": "pakhtigian_pattanayak_2024_wd_page_capture.pdf",
+    "sha256": "2429915c8b149386506aa00f52403d67ebf5be59c9fd9bf6dd03ea65bc2c76db",
+    "work": {
+      "id": "local:pakhtigian_pattanayak_2024_wd_page_capture"
+    }
+  },
+  {
+    "label": "Pathak & Macours (2017)",
+    "file": "pathak_macours_2017_edcc.pdf",
+    "sha256": "729b2c041fe279b34404f3a500e4ed7965781e1229cf5e1a41c03dbdbb7d7bae",
+    "work": {
+      "id": "doi:10.1086/692114",
+      "title": "Women's Political Reservation, Early Childhood Development, and Learning in India"
+    },
+    "search": {
+      "author": "Pathak",
+      "year": "2017",
+      "coauthor": "Macours"
+    }
+  },
+  {
+    "label": "Priebe (2017)",
+    "file": "priebe_2017_ods.pdf",
+    "sha256": "d334355a2643b6383db56e30b5427369f1d3a9cdd39c6c8a8b6cf420f2811a9b",
+    "work": {
+      "id": "local:priebe_2017_ods"
+    }
+  },
+  {
+    "label": "Raabe et al. (2009)",
+    "file": "raabe_sekher_birner_2009_ifpri_dp878.pdf",
+    "sha256": "404cc61b3d91d59ccf80c8f3a64fc11d945d48c3c3fd6394aa4c81d0d5f7bac4",
+    "work": {
+      "id": "local:raabe_sekher_birner_2009_ifpri_dp878"
+    }
+  },
+  {
+    "label": "Rajaraman & Gupta (2012)",
+    "file": "rajaraman_gupta_2012_igdr.pdf",
+    "sha256": "cc9042d90ea27ac15d2ae1dd5b80423f80cd3b57d4c0c20d2d9b33eb14820d68",
+    "work": {
+      "id": "local:rajaraman_gupta_2012_igdr"
+    }
+  },
+  {
+    "label": "Sathe et al. (2013)",
+    "file": "sathe_klasen_priebe_biniwale_2013_epw.pdf",
+    "sha256": "142a348a8d7ba81f81b839b806a6355439741ebc78eac54ec25b09673f58dfb8",
+    "work": {
+      "id": "local:sathe_klasen_priebe_biniwale_2013_epw"
+    }
+  },
+  {
+    "label": "Beaman et al. (2012)",
+    "file": "beaman_duflo_pande_topalova_2012_science_pmc.pdf",
+    "sha256": "e01765d96583eb34a8645e3ad2518c25366be4f58fc638e63a1a860fa4c77970",
+    "work": {
+      "id": "doi:10.1126/science.1212382",
+      "title": "Female Leadership Raises Aspirations and Educational Attainment for Girls: A Policy Experiment in India"
+    },
+    "search": {
+      "author": "Beaman",
+      "year": "2012"
+    }
+  },
+  {
+    "label": "Goyal (2024)",
+    "file": "goyal_2024_apsr.pdf",
+    "sha256": "c392b5770cd838e3e661c42132de9fa703cbad263d89d3870ab013a7c04bfa30",
+    "work": {
+      "id": "local:goyal_2024_apsr"
+    }
+  }
+]
