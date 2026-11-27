@@ -1,0 +1,38 @@
+{
+  "schema_version": "0.1",
+  "cited_work": {
+    "id": "doi:10.1111/j.1468-0262.2004.00539.x",
+    "title": "Women as Policy Makers: Evidence from a Randomized Policy Experiment in India"
+  },
+  "citing_work": {
+    "id": "doi:10.1126/science.1212382",
+    "title": "Female Leadership Raises Aspirations and Educational Attainment for Girls: A Policy Experiment in India"
+  },
+  "method": {
+    "name": "manual",
+    "version": "0.1"
+  },
+  "source": {
+    "kind": "pdf",
+    "sha256": "e01765d96583eb34a8645e3ad2518c25366be4f58fc638e63a1a860fa4c77970",
+    "location": "beaman_duflo_pande_topalova_2012_science_pmc.pdf"
+  },
+  "outcome": "passages_found",
+  "passages": [
+    {
+      "id": "body-refs-27-33",
+      "quote": "For India, previous research has found that women leaders invest in public goods that are more in line with female preferences, in particular water infrastructure (27, 33).",
+      "marker": "(27, 33)",
+      "review": "source_checked",
+      "location": {
+        "pdf_page": 5
+      },
+      "note": {
+        "text": "27. Chattophadhyay R, Duflo E. Women as policy makers: evidence from a randomized policy experiment in India. Econometrica. 2004; 72:1409–1443.",
+        "location": {
+          "pdf_page": 7
+        }
+      }
+    }
+  ]
+}
