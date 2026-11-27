@@ -1,12 +1,13 @@
 """Command-line entry point for the citation pipeline."""
 
 import argparse
+import sqlite3
 from pathlib import Path
 
 import httpx
 from jsonschema import ValidationError
 
-from anekanta import acquire, discover, extract, review
+from anekanta import acquire, database, discover, extract, review
 
 
 def main():
@@ -42,6 +43,16 @@ def main():
     cmd.add_argument("manifest", type=Path)
     cmd.add_argument("record", type=Path)
     cmd.set_defaults(run=review.run)
+    cmd = stages.add_parser("load", help="load citation results into a SQLite database")
+    cmd.add_argument(
+        "results", type=Path, help="JSON Lines from extract or import-review"
+    )
+    cmd.add_argument("--db", type=Path, required=True)
+    cmd.add_argument("--collection", required=True, help="name for this export")
+    cmd.add_argument(
+        "--source-root", type=Path, help="base directory for PDF locations"
+    )
+    cmd.set_defaults(run=database.run)
     args = parser.parse_args()
     if args.stage == "extract" and (
         not args.author.strip()
@@ -52,5 +63,11 @@ def main():
         parser.error("Specify a surname and four-digit publication year")
     try:
         return args.run(args)
-    except (OSError, ValueError, ValidationError, httpx.RequestError) as error:
+    except (
+        OSError,
+        ValueError,
+        ValidationError,
+        httpx.RequestError,
+        sqlite3.Error,
+    ) as error:
         parser.exit(2, f"anekanta: {error}\n")

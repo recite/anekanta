@@ -49,3 +49,4 @@ dist/
 .coverage
 docs/_build/
 /run/
+/citations.sqlite
