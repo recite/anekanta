@@ -35,12 +35,35 @@ def _get(client, url, params):
     return response.json()
 
 
+WORK_FIELDS = "id,doi,display_name,publication_year,authorships,primary_location"
+
+
+def _work_metadata(work, identifier):
+    metadata = {"id": identifier}
+    if work.get("display_name"):
+        metadata["title"] = work["display_name"]
+    if work.get("publication_year") is not None:
+        metadata["publication_year"] = work["publication_year"]
+    venue = (work.get("primary_location") or {}).get("source") or {}
+    if venue.get("display_name"):
+        metadata["venue"] = venue["display_name"]
+    authors = []
+    for authorship in work.get("authorships") or []:
+        author = authorship.get("author") or {}
+        if author.get("display_name"):
+            entry = {"name": author["display_name"]}
+            if author.get("id"):
+                entry["openalex_id"] = author["id"]
+            authors.append(entry)
+    if authors:
+        metadata["authors"] = authors
+    return metadata
+
+
 def _paper(work):
     oa = work["id"].rsplit("/", 1)[-1]
     identifier = doi_id(work["doi"]) if work.get("doi") else "openalex:" + oa
-    citing = {"id": identifier}
-    if work.get("display_name"):
-        citing["title"] = work["display_name"]
+    citing = _work_metadata(work, identifier)
     urls = [
         location["pdf_url"]
         for location in work.get("locations", [])
@@ -72,13 +95,13 @@ def discover(args, client):
                 "Discovery output exists. Use --resume or choose a new path."
             )
         url = WORKS + "/https://doi.org/" + quote(target[4:], safe="/")
-        work = _get(client, url, {"select": "id,doi,display_name"})
+        work = _get(client, url, {"select": WORK_FIELDS})
         if doi_id(work["doi"]) != target:
             raise ValueError("OpenAlex resolved the query to another DOI")
         state = {
             "provider": "openalex",
             "started_at": datetime.now(timezone.utc).isoformat(),
-            "cited_work": {"id": target},
+            "cited_work": _work_metadata(work, target),
             "target_openalex_id": work["id"].rsplit("/", 1)[-1],
             "citing_doi": subset,
             "reported_count": None,
@@ -86,8 +109,6 @@ def discover(args, client):
             "complete": False,
             "papers": [],
         }
-        if work.get("display_name"):
-            state["cited_work"]["title"] = work["display_name"]
         validate("discovery.schema.json", state)
         save_json(args.output, state)
     works = {row["citing_work"]["id"]: row for row in state["papers"]}
@@ -103,7 +124,7 @@ def discover(args, client):
             WORKS,
             {
                 "filter": filters,
-                "select": "id,doi,display_name,locations",
+                "select": WORK_FIELDS + ",locations",
                 "cursor": cursor,
                 "per_page": 100,
             },

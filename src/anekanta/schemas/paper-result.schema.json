@@ -75,7 +75,21 @@
           "type": "string",
           "pattern": "^(doi|arxiv|s2|openalex|local):[^\\s]+$"
         },
-        "title": { "$ref": "#/$defs/text" }
+        "title": { "$ref": "#/$defs/text" },
+        "publication_year": { "type": "integer" },
+        "venue": { "$ref": "#/$defs/text" },
+        "authors": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name"],
+            "additionalProperties": false,
+            "properties": {
+              "name": { "$ref": "#/$defs/text" },
+              "openalex_id": { "$ref": "#/$defs/text" }
+            }
+          }
+        }
       }
     },
     "location": {
